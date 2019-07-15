@@ -20,7 +20,8 @@ echo -e "\033[40"
 
 echo -e ${WHITE}
 echo "###################################################################################"
-echo "*** NUKE IT ALL! Caution ***"
+echo "    CLEAN INSTALL. This script will delete minikube and install a fresh copy "
+echo "    EXIT this script if you don't want to delete your installed copy of minikube"
 echo "###################################################################################"
 read -p "Press enter to continue. "
 echo -e ${DEFAULT}
