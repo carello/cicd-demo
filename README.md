@@ -2,7 +2,7 @@
 
 Docker-Compose is used to instantiate the environment and run locally. The GOGS container uses Sqlite3 and provides persistent storage for your repos. Minikube will use the VM Driver with VirtualBox. This current version is leveraging docker hub as a registry.
 
-###Software Requirements
+### Software Requirements
 You'll need the following software:
 
 *	[Docker for Desktop](https://docs.docker.com/docker-for-mac/install/#download-docker-for-mac)
@@ -16,7 +16,7 @@ You'll need the following software:
 * You also have a [Docker Hub](docker.io) account.
 
 
-##How to use
+## How to use
 ### Section 1: Bootstrapping
 
 NOTE: If you already have a version of minikube installed, you can try to use that environment. However, I haven't tested it. This app is written for greenfield.
