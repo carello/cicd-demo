@@ -136,7 +136,7 @@ NOTE: If you already have a version of minikube installed, you can try to use th
 - In your terminal window type: `minikube service cicd-app`. A browser window should open with the html page of with your changes.
 
 ### Section 6: Clean up
-To re-run this demo, we need to clean up things: shutdown and remove the containers, delete the GOGS database. There's a script in the cicd-demo directory call `cleanup.sh` that you could use. __CAUTION! Please note this script isn't very robust so you might want to clean up things without using this script.__
+To re-run this demo, we need to clean up things: shutdown and remove the containers, and delete the GOGS database. There's a script in the cicd-demo directory call `cleanup.sh` that you could use. __CAUTION! Please note this script isn't very robust so you might want to clean up things without using this script.__
 
 You'll need to delete these files, if you decide to do this manually.
 
@@ -144,7 +144,8 @@ You'll need to delete these files, if you decide to do this manually.
 	* docker `rm -f <container name>`
 - In the `cicd-demo` directory, delete the `gogs` and `drone` directories.
 	* `rm -rf <directory name>` 
-- In the `cicd-app` directory, delete the hidden directory `.git`
+- In the `cicd-app` directory, delete the hidden git directory :
+	* `rm -rf .git`
 - Minikube will be deleted when you re-run this demo. If you choose, you can delete it now, type: 
 	* `minikube stop`
 	* `minikube delete`
