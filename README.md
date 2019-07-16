@@ -66,25 +66,24 @@ NOTE: If you already have a version of minikube installed, you can try to use th
 
 - Go back to your open terminal and paste these in. Run `drone info` to check if things are working.
 
-- We need to set up secret keys next. We'll be setting up 5 keys using these key words: DOCKER\_PASSWORD, DOCKER\_USERNAME, KUBERNETES\_CERT,  KUBERNETES\_SERVER and KUBERNETES\_TOKEN. We'll be working from two different terminal windows, (you can work from a single terminal but the screen will get cluttered). You'll need the IP address of your computer. In your opened terminal type:
+- We need to set up secret keys next. We'll be setting up 5 keys using these key words: DOCKER\_PASSWORD, DOCKER\_USERNAME, KUBERNETES\_CERT,  KUBERNETES\_SERVER and KUBERNETES\_TOKEN. We'll be working from two different terminal windows, (you can work from a single terminal but the screen will get cluttered). You'll need the IP address of your computer. In your opened terminal, enter the following keys:
 
 
 		drone secret add --name KUBERNETES_SERVER --allow-push-on-pull-request --repository <your repo you created in gogs> --data <IP of your computer:8001>
 			
-	>_Example:_ drone secret add --name KUBERNETES_SERVER  --allow-push-on-pull-request  --repository johnsmith/cicd-app --data 192.168.1.105:8001
- 
- 
+	>>_Example:_ drone secret add --name KUBERNETES_SERVER  --allow-push-on-pull-request --repository johnsmith/cicd-app --data 10.1.1.10:8001
+	
 		drone secret add --name DOCKER_USERNAME --repository <the one you created in gogs> --data <your docker hub name>
 			
-	>_Example:_ drone secret add --name DOCKER_USERNAME  --repository johnsmith/cicd-app --data johnsmith
+	>>_Example_: drone secret add --name DOCKER_USERNAME  --repository johnsmith/cicd-app --data johnsmith
 
 
 		drone secret add --name DOCKER_PASSWORD --repository <the one you created in gogs> --data <your docker hub password>
 		
-	>_Eample:_ drone secret add --name DOCKER_PASSWORD --repository johnsmith/cicd-app --data mypassword
+	>>_Eample:_ drone secret add --name DOCKER_PASSWORD --repository johnsmith/cicd-app --data mypassword
 
 	
-- We need to copy the cert and token from K8's next. We'll capture the __cert__ first. Open another terminal window to work from, type:
+- We need to copy the cert and token from K8's next. We'll capture the __cert__ first. Open another terminal window to work from and enter:
 	
 		kubectl get secret -n default  -o yaml | grep 'ca.crt:' | awk -F ": " '{ print $2 }' | pbcopy
 	
