@@ -169,6 +169,5 @@ You'll need to delete these files, if you decide to do this manually.
 
 
 ### To Do
-- Use local registry instead of docker.io
 - Use the hyperkit driver
 
