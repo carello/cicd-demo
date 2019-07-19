@@ -1,6 +1,6 @@
 # CI/CD - Drone, Gogs and Minikube on OS X
 
-Docker-Compose is used to instantiate the environment and run locally. The GOGS container uses Sqlite3 and provides persistent storage for your repos. Minikube will use the VM Driver with VirtualBox. This current version is leveraging docker hub as a registry.
+Docker-Compose is used to instantiate the environment and run locally. The GOGS container uses Sqlite3 and provides persistent storage for your repos. Minikube will use the VM Driver with VirtualBox. This Master GIT branch is leveraging docker hub as a registry. If you want to try this using a local registry, checkout GIT Branch "cicd-localreg" 
 
 ### Software Requirements
 You'll need the following software:
@@ -166,6 +166,5 @@ You'll need to delete these files, if you decide to do this manually.
 
 
 ### To Do
-- Use local registry instead of docker.io
 - Use the hyperkit driver
 
