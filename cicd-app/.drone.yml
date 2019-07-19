@@ -1,0 +1,25 @@
+---
+pipeline:
+  test:
+    image: localhost:5001/pythonbase:latest
+    commands:
+      - cp -r . /app
+      - cd /app
+      - pip install -r requirements.txt
+      - python tests.py
+    
+  docker:
+#    secrets: [ docker_username, docker_password ]
+    image: plugins/docker
+    dockerfile: Dockerfile
+    insecure: true
+    action: build
+    repo: registry1:5001/cicd-app
+    registry: registry1:5001
+    tags: latest
+              
+  deploy:   
+    image: sh4d1/drone-kubernetes
+    kubernetes_template: deployment-app.yaml
+    kubernetes_namespace: default
+    secrets: [ kubernetes_server, kubernetes_cert, kubernetes_token ]
