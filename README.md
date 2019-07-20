@@ -28,7 +28,7 @@ NOTE: If you already have a version of minikube installed, you can try to use th
 	* >![image](readme-images/docker_pref.png)
 	
 
-	* Select "Daemon" ICON, enter in the insecure registries:
+	* Select the "Daemon" ICON, enter in the insecure registries:
 		* `localhost:5001` and `registry1:5001`
 		* Hit Apply & Restart
 
@@ -144,11 +144,13 @@ To re-run this demo, we need to clean up things: shutdown and remove the contain
 
 You'll need to delete these files, if you decide to do this manually.
 
-- Shut down and remove containers: `dc-drone-server` and `dc-gogs`
-	* docker `rm -f <container name>`
+- Shut down and remove containers and delete the network: `dc-drone-server`, `dc-gogs` and `registry1`
+	* `docker rm -f <container name>`
+	* `docker network rm cicd-demo_default`
 - In the `cicd-demo` directory, delete the `gogs` and `drone` directories.
 	* `rm -rf <directory name>` 
-- In the `cicd-app` directory, delete the hidden directory `.git`
+- In the `cicd-app` directory, delete the hidden git directory:
+	* `rm -rf .git`
 - Minikube will be deleted when you re-run this demo. If you choose, you can delete it now, type: 
 	* `minikube stop`
 	* `minikube delete`
@@ -162,7 +164,7 @@ You'll need to delete these files, if you decide to do this manually.
 	* `docker network inspect cicd-demo_default`
 - Did you use the name 	`dc-gogs` when installing GOGS?
 - Is the terminal window running `kubectl proxy --address='0.0.0.0' --disable-filter=true` still open? This was instantiated during the minikube install and needs to keep running.
-- It's easy to make mistakes setting up the 5 keys. You might need to re-create them if you think that is the issue. You can remove the secret keys by typing: `drone secret rm --name <key name> --repository <repository name>`
+- It's easy to make mistakes setting up the 3 keys. You might need to re-create them if you think that is the issue. You can remove the secret keys by typing: `drone secret rm --name <key name> --repository <repository name>`
 - Look at the Drone build log and see which part of the build is failing.
 - Did you load the environmental variables?
 - Are you running the most recent versions of Minikube and Kubectl?
