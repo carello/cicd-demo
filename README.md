@@ -93,7 +93,7 @@ NOTE: If you already have a version of minikube installed, you can try to use th
 	
 				minikube ssh
 				ping google.com
-				netstat -r (copy gateway address from the netstat -r output)
+				
 		* If successful, go to:  __Section 3: Set up GOGS__  below.
 			
 
